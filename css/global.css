@@ -9,11 +9,12 @@ progress[value] {
     appearance: none;
     background-color: #DDDDDD;
     height: 8px;
-    -webkit-transition: opacity 3s ease;
-    -moz-transition: opacity 3s ease;
-    -ms-transition: opacity 3s ease;
-    -o-transition: opacity 3s ease;
-    transition: opacity 3s ease;
+    -webkit-transition: opacity 0.75s ease;
+    -moz-transition: opacity 0.75s ease;
+    -ms-transition: opacity 0.75s ease;
+    -o-transition: opacity 0.75s ease;
+    transition: opacity 0.75s ease;
+    width: 100%;
 }
 
 progress[value]::-webkit-progress-bar {
@@ -44,7 +45,7 @@ progress[value]::-webkit-progress-value, progress[value]::-moz-progress-bar {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #283593;
+    background-color: #0D47A1;
 }
 
 #url-form {
@@ -54,6 +55,7 @@ progress[value]::-webkit-progress-value, progress[value]::-moz-progress-bar {
     align-items: center;
     background: #EEE;
     border-radius: 8px;
+    width: 100%;
 }
 
 #url-bar {
@@ -65,6 +67,7 @@ progress[value]::-webkit-progress-value, progress[value]::-moz-progress-bar {
 
 #url-bar::placeholder {
     color: #303030;
+    margin-left: 4px;
 }
 
 #home-button {
@@ -72,6 +75,7 @@ progress[value]::-webkit-progress-value, progress[value]::-moz-progress-bar {
     background: none;
     border: none;
     outline: none;
+    cursor: pointer;
 }
 
 #url-enter {
@@ -79,4 +83,5 @@ progress[value]::-webkit-progress-value, progress[value]::-moz-progress-bar {
     background: none;
     border: none;
     outline: none;
+    cursor: pointer;
 }
