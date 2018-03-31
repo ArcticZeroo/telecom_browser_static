@@ -113,7 +113,7 @@ class PageProgressBar extends EventEmitter {
 
     addTime() {
         if (this.progress >= MAX_BAR_VALUE) {
-            this.element.style.opacity = 0.0;
+            //this.element.style.opacity = 0.0;
             this.emit('done');
             return;
         }
@@ -139,7 +139,6 @@ class PageProgressBar extends EventEmitter {
         }
 
         this.progress = 0;
-        this.element.style.opacity = 1.0;
 
         setTimeout(() => this.addTime(), BAR_ADD_TIMEOUT * 5);
     }
@@ -211,6 +210,9 @@ $(document).ready(function () {
          loadPage(url);
     });
 
-    setTimeout(() => $('#page-progress').attr('opacity', 1), 1000);
-    setTimeout(() => loadPage(HOME_URL, 3), 1750);
+    $('#home-button').click(function () {
+        loadPage(HOME_URL);
+    });
+
+    loadPage(HOME_URL, 3);
 });
