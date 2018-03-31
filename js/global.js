@@ -4,6 +4,24 @@ const MAX_BAR_VALUE = 1;
 const PAGE_ROOT = 'https://frozor.io/netneutrality/html/';
 const HOME_URL = PAGE_ROOT + 'home';
 
+Array.prototype._remove = function (element) {
+    this.splice(this.indexOf(element), 1);
+};
+
+Array.prototype.remove = function (element, all = true) {
+    if (!this.includes(element)) {
+        return;
+    }
+
+    if (all) {
+        while (this.includes(element)) {
+            this._remove(element);
+        }
+    } else {
+        this._remove(element);
+    }
+};
+
 class EventEmitter {
     constructor() {
         this._listeners = {};
@@ -155,6 +173,6 @@ events.on('page', function (url) {
     }
 });
 
-$(document).ready(function () {
+$(window).bind('load', function () {
     loadPage(HOME_URL, 3);
 });
