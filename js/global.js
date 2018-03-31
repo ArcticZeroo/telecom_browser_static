@@ -155,6 +155,18 @@ const homeButton = $('#home-button');
 const progressBar = new PageProgressBar();
 const events = new EventEmitter();
 
+function request(url) {
+    return new Promise((resolve, reject) => {
+        $.get(url, function (data, status) {
+            if (status !== 'success') {
+                return reject(new Error(status));
+            }
+
+            resolve(data);
+        });
+    });
+}
+
 function loadPage(url, speed = 1.0) {
     progressBar.speedMultiplier = speed;
 
@@ -166,9 +178,18 @@ function loadPage(url, speed = 1.0) {
 }
 
 function loadPageActual(url) {
-    $('#webpage-iframe').attr('src', url);
+    const body = $('body');
 
-    events.emit('page', url);
+    body.clear();
+
+    request(url)
+        .then((data) => {
+            body.append(data);
+            events.emit('page', url);
+        })
+        .catch((e) => {
+            body.append('<article class="error">Unable to load webpage. Please try again later.</article>');
+        });
 }
 
 events.on('page', function (url) {
