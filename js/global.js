@@ -1,7 +1,7 @@
 // Constants
 const BAR_ADD_TIMEOUT = 50;
 const MAX_BAR_VALUE = 1;
-const PAGE_ROOT = 'https://frozor.io/netneutrality/html/';
+const PAGE_ROOT = window.location.origin + '/netneutrality/html/';
 const HOME_URL = PAGE_ROOT + 'home';
 
 Array.prototype._remove = function (element) {
