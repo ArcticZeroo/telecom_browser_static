@@ -211,6 +211,6 @@ $(document).ready(function () {
          loadPage(url);
     });
 
-    setTimeout(() => $('#page-progress').attr('opacity', 1), 250);
-    setTimeout(() => loadPage(HOME_URL, 3), 1000);
+    setTimeout(() => $('#page-progress').attr('opacity', 1), 1000);
+    setTimeout(() => loadPage(HOME_URL, 3), 1750);
 });
