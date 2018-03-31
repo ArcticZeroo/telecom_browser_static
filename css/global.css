@@ -36,7 +36,7 @@ progress[value]::-webkit-progress-value, progress[value]::-moz-progress-bar {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #BBDEFB;
+    background-color: #283593;
 }
 
 #url-form {
@@ -44,14 +44,14 @@ progress[value]::-webkit-progress-value, progress[value]::-moz-progress-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #EEE;
+    border-radius: 8px;
 }
 
 #url-bar {
-    background: #EEE none;
+    background: none;
     outline: none;
     border: none;
-    border-radius: 6px;
-    padding: 6px;
     color: #212121;
 }
 
@@ -61,8 +61,14 @@ progress[value]::-webkit-progress-value, progress[value]::-moz-progress-bar {
 
 #home-button {
     color: white;
+    background: none;
+    border: none;
+    outline: none;
 }
 
 #url-enter {
     color : #212121;
+    background: none;
+    border: none;
+    outline: none;
 }
