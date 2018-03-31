@@ -30,6 +30,14 @@ progress[value]::-webkit-progress-value, progress[value]::-moz-progress-bar {
     transition: all 0.25s ease;
 }
 
+#main-header {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #url-bar-header {
     display: flex;
     width: 100%;
