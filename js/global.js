@@ -2,7 +2,7 @@
 const BAR_ADD_TIMEOUT = 50;
 const MAX_BAR_VALUE = 1;
 const PAGE_ROOT = window.location.origin + '/netneutrality/html/';
-const HOME_URL = PAGE_ROOT + 'home';
+const HOME_URL = PAGE_ROOT + 'home.html';
 
 Array.prototype._remove = function (element) {
     this.splice(this.indexOf(element), 1);
@@ -178,17 +178,17 @@ function loadPage(url, speed = 1.0) {
 }
 
 function loadPageActual(url) {
-    const body = $('body');
+    const site = $('#site-container');
 
-    body.empty();
+    site.empty();
 
     request(url)
         .then((data) => {
-            body.append(data);
+            site.append(data);
             events.emit('page', url);
         })
         .catch((e) => {
-            body.append('<article class="error">Unable to load webpage. Please try again later.</article>');
+            site.append('<article class="error">Unable to load webpage. Please try again later.</article>');
         });
 }
 
@@ -200,6 +200,22 @@ events.on('page', function (url) {
     }
 });
 
-$(window).bind('load', function () {
+$(document).ready(function () {
+    $('#url-form').submit(function (e) {
+         e.preventDefault();
+
+         const urlBar = $('#url-bar');
+
+         const url = urlBar.val().trim();
+
+         if (!url) {
+             return;
+         }
+
+         urlBar.val('');
+
+         loadPage(url);
+    });
+
     loadPage(HOME_URL, 3);
 });
