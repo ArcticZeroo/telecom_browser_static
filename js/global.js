@@ -180,7 +180,7 @@ function loadPage(url, speed = 1.0) {
 function loadPageActual(url) {
     const body = $('body');
 
-    body.clear();
+    body.empty();
 
     request(url)
         .then((data) => {
