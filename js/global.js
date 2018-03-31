@@ -138,12 +138,6 @@ class PageProgressBar extends EventEmitter {
             }
         }
 
-        if (!this.$) {
-            this.$ = $('#page-progress');
-        }
-
-        this.$.show();
-
         this.progress = 0;
         this.element.style.opacity = 1.0;
 
@@ -217,5 +211,6 @@ $(document).ready(function () {
          loadPage(url);
     });
 
-    loadPage(HOME_URL, 3);
+    setTimeout(() => $('#page-progress').attr('opacity', 1), 250);
+    setTimeout(() => loadPage(HOME_URL, 3), 1000);
 });
