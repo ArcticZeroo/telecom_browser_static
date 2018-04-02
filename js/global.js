@@ -113,7 +113,7 @@ class PageProgressBar extends EventEmitter {
 
     addTime() {
         if (this.progress >= MAX_BAR_VALUE) {
-            //this.element.style.opacity = 0.0;
+            this.element.style.opacity = 0.0;
             this.emit('done');
             return;
         }
@@ -129,13 +129,17 @@ class PageProgressBar extends EventEmitter {
         setTimeout(() => this.addTime(), BAR_ADD_TIMEOUT + timeoutAdd);
     }
 
-    start() {
+    start(show = true) {
         if (!this.element) {
             this.element = document.getElementById('page-progress');
 
             if (!this.element) {
                 throw new Error('Progress bar was not found');
             }
+        }
+
+        if (show) {
+            this.element.style.opacity = 1.0;
         }
 
         this.progress = 0;
@@ -160,7 +164,9 @@ function request(url) {
     });
 }
 
-function loadPage(url, speed = 1.0, internal = false) {
+function loadPage(url, speed = 1.0, internal = false, show) {
+    events.emit('disable');
+
     if (internal) {
         $('iframe').hide();
         $('#site-container').show();
@@ -175,7 +181,7 @@ function loadPage(url, speed = 1.0, internal = false) {
         loadPageActual(url, internal);
     });
 
-    progressBar.start();
+    progressBar.start(show);
 }
 
 function loadPageInternal(url) {
@@ -230,5 +236,5 @@ $(document).ready(function () {
         loadPage(HOME_URL, 1, true);
     });
 
-    loadPage(HOME_URL, 3, true);
+    loadPage(HOME_URL, 3, true, false);
 });
