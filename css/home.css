@@ -33,4 +33,6 @@ li.site-item {
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
+    min-height: 32px;
+    margin: 12px;
 }
