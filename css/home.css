@@ -40,3 +40,26 @@ li.site-item {
     min-height: 32px;
     margin: 12px;
 }
+
+#bing-search-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #212121;
+    border-radius: 4px;
+}
+
+#bing-search-query {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+#bing-search-enter {
+    background: none;
+    border: none;
+    outline: none;
+    color: #2196F3;
+    cursor: pointer;
+}
