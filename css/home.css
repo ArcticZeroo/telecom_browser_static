@@ -1,0 +1,18 @@
+ul.site-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li.site-item {
+    display: block;
+}
+
+.site-item button {
+    background: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
