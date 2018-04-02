@@ -70,6 +70,7 @@ progress[value]::-webkit-progress-value, progress[value]::-moz-progress-bar {
     border: none;
     color: #212121;
     width: 100%;
+    padding: 6px;
 }
 
 #url-bar::placeholder {

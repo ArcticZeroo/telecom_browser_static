@@ -55,7 +55,7 @@ li.site-item {
     background: none;
     border: none;
     outline: none;
-    min-width: 128px;
+    width: 100%;
     margin-left: 8px;
 }
 
