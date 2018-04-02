@@ -207,7 +207,7 @@ $(document).ready(function () {
 
          urlBar.val('');
 
-         loadPage(window.location.origin + '/api/proxy/' + encodeURI(url));
+         loadPage(window.location.origin + '/api/proxy?url=' + encodeURI(url));
     });
 
     $('#home-button').click(function () {
