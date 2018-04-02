@@ -47,13 +47,15 @@ li.site-item {
     align-items: center;
     border: 1px solid #212121;
     border-radius: 4px;
+    padding: 6px;
 }
 
 #bing-search-query {
     background: none;
     border: none;
     outline: none;
-    width: 100%;
+    min-width: 128px;
+    margin-left: 8px;
 }
 
 #bing-search-enter {
