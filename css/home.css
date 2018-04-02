@@ -48,6 +48,7 @@ li.site-item {
     border: 1px solid #212121;
     border-radius: 4px;
     padding: 6px;
+    width: 100%;
 }
 
 #bing-search-query {
