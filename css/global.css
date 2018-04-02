@@ -63,6 +63,7 @@ progress[value]::-webkit-progress-value, progress[value]::-moz-progress-bar {
     outline: none;
     border: none;
     color: #212121;
+    width: 100%;
 }
 
 #url-bar::placeholder {

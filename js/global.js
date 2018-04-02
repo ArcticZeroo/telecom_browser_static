@@ -178,6 +178,10 @@ function loadPage(url, speed = 1.0, internal = false) {
     progressBar.start();
 }
 
+function loadPageInternal(url) {
+    loadPage(PAGE_ROOT + url + '.html', undefined, true);
+}
+
 function loadPageActual(url, internal = false) {
     if (internal) {
         const site = $('#site-container');
