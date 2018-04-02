@@ -160,29 +160,41 @@ function request(url) {
     });
 }
 
-function loadPage(url, speed = 1.0) {
+function loadPage(url, speed = 1.0, internal = false) {
+    if (internal) {
+        $('iframe').hide();
+        $('#site-container').show();
+    } else {
+        $('iframe').show();
+        $('#site-container').hide();
+    }
+
     progressBar.speedMultiplier = speed;
 
     progressBar.once('done', function () {
-        loadPageActual(url);
+        loadPageActual(url, internal);
     });
 
     progressBar.start();
 }
 
-function loadPageActual(url) {
-    const site = $('#site-container');
+function loadPageActual(url, internal = false) {
+    if (internal) {
+        const site = $('#site-container');
 
-    site.empty();
+        site.empty();
 
-    request(url)
-        .then((data) => {
-            site.append(data);
-            events.emit('page', url);
-        })
-        .catch((e) => {
-            site.append('<article class="error">Unable to load webpage. Please try again later.</article>');
-        });
+        request(url)
+            .then((data) => {
+                site.append(data);
+                events.emit('page', url);
+            })
+            .catch((e) => {
+                site.append('<article class="error">Unable to load webpage. Please try again later.</article>');
+            });
+    } else {
+        $('iframe').attr('src', url);
+    }
 }
 
 events.on('page', function (url) {
@@ -211,8 +223,8 @@ $(document).ready(function () {
     });
 
     $('#home-button').click(function () {
-        loadPage(HOME_URL);
+        loadPage(HOME_URL, 1, true);
     });
 
-    loadPage(HOME_URL, 3);
+    loadPage(HOME_URL, 3, true);
 });
