@@ -195,7 +195,7 @@ class PopupModal extends EventEmitter {
         const modal = $(`#${id}`);
 
         if (canBeClosed) {
-            modal.append(`<div id="${id}-close"><i class="material-icons" id="${id}-close-button">close</i></div>`);
+            modal.append(`<div id="${id}-close" class="popup-modal-close"><i class="material-icons" id="${id}-close-button">close</i></div>`);
         }
 
         modal.append(`<div id="${id}-title" class="title">${title}</div>`);
@@ -210,6 +210,8 @@ class PopupModal extends EventEmitter {
             modal.remove();
             this.emit('close');
         });
+
+        this.modal = modal;
     }
 }
 
@@ -246,7 +248,7 @@ function loadPage(url, speed = 1.0, internal = false, show) {
             text = data.message || 'Sorry, but you can\'t visit this site.';
         }
 
-        new PopupModal({ title: 'Site Visit Restricted', text, id: 'site-visit-restricted' });
+        new PopupModal({ title: 'Site Visit Restricted', text, id: 'site-visit-restricted' }).modal.addClass('red');
 
         return;
     }

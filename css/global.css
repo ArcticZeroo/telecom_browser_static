@@ -114,3 +114,11 @@ button {
     margin-left: -128px;   /* negative half of width above */
     margin-top: -128px;   /* negative half of height above */
 }
+
+.popup-modal-close {
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
