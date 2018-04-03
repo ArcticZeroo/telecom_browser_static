@@ -4,15 +4,19 @@ function playSong(elem, url) {
     const artist = elem.find('#music-item-artist').html();
     const name = elem.find('#music-item-song').html();
 
+    console.log(`Playing ${name} by ${artist}`);
+
     if (music.src && !music.paused) {
         music.pause();
     }
 
-    music.src = PAGE_ROOT + 'audio/' + url + '.mp3';
-
-    $('#music-toggle').css('opacity', 1.0);
+    $('#music-toggle').css('opacity', 1.0).html('pause');
     $('#music-name').html(name);
     $('#music-artist').html(artist);
+
+    music.src = PAGE_ROOT + 'audio/' + url + '.mp3';
+
+    music.play();
 }
 
 $('#music-toggle').click(function () {
