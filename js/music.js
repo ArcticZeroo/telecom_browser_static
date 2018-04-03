@@ -1,23 +1,29 @@
 const music = document.getElementById('the-music');
+let playingArtist;
+let playingName;
 
 function playSong(elem, url) {
-    const artist = elem.find('.music-item-artist').html();
-    const name = elem.find('.music-item-song').html();
+    playingArtist = elem.find('.music-item-artist').html();
+    playingName = elem.find('.music-item-song').html();
 
-    console.log(`Playing ${name} by ${artist}`);
+    console.log(`Playing ${playingName} by ${playingArtist}`);
 
     if (music.src && !music.paused) {
         music.pause();
     }
 
     $('#music-toggle').css('opacity', 1.0).html('pause');
-    $('#music-name').html(name);
-    $('#music-artist').html(artist);
+    $('#music-name').html(playingName + ' (Loading)');
+    $('#music-artist').html(playingArtist);
 
     music.src = PAGE_ROOT + 'audio/' + url + '.mp3';
 
     music.play();
 }
+
+music.addEventListener('canplay', function () {
+    $('#music-name').html(playingName);
+});
 
 $('#music-toggle').click(function () {
     if (!music.src) {
