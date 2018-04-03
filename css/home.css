@@ -66,3 +66,16 @@ li.site-item {
     color: #2196F3;
     cursor: pointer;
 }
+
+.body section {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+#package-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}

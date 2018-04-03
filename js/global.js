@@ -206,7 +206,7 @@ class PopupModal extends EventEmitter {
 
         modal.append(`<div id="${id}-body" class="body">${text}</div>`);
 
-        $(`#${id}-close-button`).click(function () {
+        $(`#${id}-close-button`).click(() => {
             modal.remove();
             this.emit('close');
         });
