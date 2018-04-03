@@ -249,7 +249,7 @@ function loadPage(url, speed = 1.0, internal = false, show) {
             text = data.message || 'Sorry, but you can\'t visit this site.';
         }
 
-        new PopupModal({ title: 'Site Visit Restricted', text, id: 'site-visit-restricted', classes: ['red'] });
+        new PopupModal({ title: 'Site Visit Restricted', text, id: 'site-visit-restricted', classes: ['error'] });
 
         return;
     }
@@ -289,7 +289,7 @@ function loadPageActual(url, internal = false) {
                 events.emit('page', url);
             })
             .catch((e) => {
-                new PopupModal({ title: 'Site Loading Error', text: 'Unable to load website. Please try again later.', classes: ['red'] });
+                new PopupModal({ title: 'Site Loading Error', text: 'Unable to load website. Please try again later.', classes: ['error'] });
             });
     } else {
         $('iframe').attr('src', url);
