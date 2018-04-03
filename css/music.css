@@ -6,6 +6,7 @@
     margin: 16px;
     background: #ABABAB;
     border-radius: 6px;
+    flex-wrap: wrap;
 }
 
 .music-item {
