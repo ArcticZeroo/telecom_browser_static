@@ -26,5 +26,5 @@ for (const key of Object.keys(PACKAGES)) {
     const perks = $(`#package-${key}-perks`);
 
     perks.append(`<li>Price: $${packageData.price}/month</li>`)
-    perks.append(`<li>Provides access to: $${packageData.includes.join(', ')}</li>`);
+    perks.append(`<li>Provides access to: ${packageData.includes.join(', ')}</li>`);
 }
