@@ -4,7 +4,7 @@ const MAX_BAR_VALUE = 1;
 const PAGE_ROOT = window.location.origin + '/netneutrality/html/';
 const HOME_URL = PAGE_ROOT + 'home.html';
 
-PACKAGES = {
+const PACKAGES = {
     social: {
         name: 'Social Media',
         price: 4.99,
@@ -22,7 +22,7 @@ PACKAGES = {
     }
 };
 
-DISALLOWED = {
+const DISALLOWED = {
     youtube: {
         name: 'YouTube',
         package: 'video'
