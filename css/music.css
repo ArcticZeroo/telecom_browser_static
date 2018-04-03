@@ -33,9 +33,14 @@
 .bottom-bar {
     justify-content: space-between !important;
     color: white;
-    padding: 16px;
+    height: 48px;
 }
 
 #music-toggle {
     cursor: pointer;
+    margin-left: 16px;
+}
+
+#music-artist {
+    margin-right: 16px;
 }

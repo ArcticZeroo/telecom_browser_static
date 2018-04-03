@@ -29,7 +29,7 @@ $('#music-toggle').click(function () {
         $('#music-toggle').html('pause');
     } else {
         music.pause();
-        $('#music-toggle').html('play');
+        $('#music-toggle').html('play_arrow');
     }
 });
 
