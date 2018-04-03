@@ -21,8 +21,12 @@ function playSong(elem, url) {
     music.play();
 }
 
-music.addEventListener('canplay', function () {
+music.addEventListener('playing', function () {
     $('#music-name').html(playingName);
+});
+
+music.addEventListener('pause', function () {
+    $('#music-name').html(playingName + ' (Paused)');
 });
 
 $('#music-toggle').click(function () {
