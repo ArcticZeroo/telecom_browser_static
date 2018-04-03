@@ -4,6 +4,44 @@ const MAX_BAR_VALUE = 1;
 const PAGE_ROOT = window.location.origin + '/netneutrality/html/';
 const HOME_URL = PAGE_ROOT + 'home.html';
 
+PACKAGES = {
+    social: {
+        name: 'Social Media',
+        price: 4.99,
+        includes: ['Facebook', 'Twitter', 'Snapchat']
+    },
+    video: {
+        name: 'Basic Video Streaming',
+        price: 1.99,
+        includes: ['YouTube']
+    },
+    gaming: {
+        name: 'Gaming',
+        price: 3.50,
+        includes: ['Twitch.tv', 'YouTube Gaming', 'Most gaming forums']
+    }
+};
+
+DISALLOWED = {
+    youtube: {
+        name: 'YouTube',
+        package: 'video'
+    },
+    google: {
+        name: 'Google',
+        message: 'Use our featured search provider instead, Bing!'
+    },
+    twitter: {
+        name: 'Twitter',
+        package: 'social'
+    },
+    facebook: {
+        name: 'Facebook',
+        package: 'social'
+    },
+
+};
+
 Array.prototype._remove = function (element) {
     this.splice(this.indexOf(element), 1);
 };
@@ -148,6 +186,33 @@ class PageProgressBar extends EventEmitter {
     }
 }
 
+class PopupModal extends EventEmitter {
+    constructor({ title, subtitle, text, canBeClosed = true, id }) {
+        super();
+
+        $('body').append(`<div class="card popup-modal" id="${id}"></div>`);
+
+        const modal = $(`#${id}`);
+
+        if (canBeClosed) {
+            modal.append(`<div id="${id}-close"><i class="material-icons" id="${id}-close-button">close</i></div>`);
+        }
+
+        modal.append(`<div id="${id}-title" class="title">${title}</div>`);
+
+        if (subtitle) {
+            modal.append(`<div id="${id}-subtitle" class="subtitle">${subtitle}</div>`);
+        }
+
+        modal.append(`<div id="${id}-body" class="body">${text}</div>`);
+
+        $(`#${id}-close-button`).click(function () {
+            modal.remove();
+            this.emit('close');
+        });
+    }
+}
+
 const homeButton = $('#home-button');
 const progressBar = new PageProgressBar();
 const events = new EventEmitter();
@@ -165,6 +230,27 @@ function request(url) {
 }
 
 function loadPage(url, speed = 1.0, internal = false, show) {
+    for (const inclusion of Object.keys(DISALLOWED)) {
+        if (!url.toLowerCase().includes(inclusion)) {
+            continue;
+        }
+
+        const data = DISALLOWED[inclusion];
+
+        let text;
+        if (data.package) {
+            const purchasePackage = PACKAGES[data.package];
+
+            text = `Purchase the ${purchasePackage.name} package for only $${purchasePackage.price} per month to visit this site!`;
+        } else {
+            text = data.message || 'Sorry, but you can\'t visit this site.';
+        }
+
+        new PopupModal({ title: 'Site Visit Restricted', text, id: 'site-visit-restricted' });
+
+        return;
+    }
+
     events.emit('disable');
 
     if (internal) {

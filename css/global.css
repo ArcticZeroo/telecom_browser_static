@@ -104,3 +104,13 @@ iframe {
 button {
     cursor: pointer;
 }
+
+.popup-modal {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    width: 256px;  /* adjust as per your needs */
+    height: 256px;   /* adjust as per your needs */
+    margin-left: -128px;   /* negative half of width above */
+    margin-top: -128px;   /* negative half of height above */
+}
