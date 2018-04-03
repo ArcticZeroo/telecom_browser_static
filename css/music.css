@@ -29,3 +29,13 @@
     font-weight: bold;
     margin-bottom: 8px;
 }
+
+.bottom-bar {
+    justify-content: space-between !important;
+    color: white;
+    padding: 16px;
+}
+
+#music-toggle {
+    cursor: pointer;
+}
