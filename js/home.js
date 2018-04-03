@@ -1,16 +1,14 @@
-$(document).ready(function () {
-    $('#bing-search-form').submit(function (e) {
-        e.preventDefault();
+$('#bing-search-form').submit(function (e) {
+    e.preventDefault();
 
-        const queryInput = $('#bing-search-query');
-        const searchTerm = queryInput.val();
+    const queryInput = $('#bing-search-query');
+    const searchTerm = queryInput.val();
 
-        if (!searchTerm.trim().length) {
-            return;
-        }
+    if (!searchTerm.trim().length) {
+        return;
+    }
 
-        queryInput.val('');
+    queryInput.val('');
 
-        loadPage(`https://bing.com/search?q=${searchTerm.split(' ').filter(e => e.trim().length).map(encodeURI).join('+')}`);
-    });
+    loadPage(`https://bing.com/search?q=${searchTerm.split(' ').filter(e => e.trim().length).map(encodeURI).join('+')}`);
 });
