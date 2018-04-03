@@ -295,6 +295,10 @@ function loadPageActual(url, internal = false) {
     }
 }
 
+function loadProxyPage(url, ...args) {
+    loadPage(window.location.origin + '/api/proxy?url=' + encodeURI(url), ...args);
+}
+
 events.on('page', function (url) {
     if (url === HOME_URL) {
         homeButton.hide();
@@ -317,7 +321,7 @@ $(document).ready(function () {
 
          urlBar.val('');
 
-         loadPage(window.location.origin + '/api/proxy?url=' + encodeURI(url));
+         loadProxyPage(url);
     });
 
     $('#home-button').click(function () {
