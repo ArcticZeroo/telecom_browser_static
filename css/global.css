@@ -106,7 +106,7 @@ button {
 }
 
 .popup-modal {
-    position:absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     width: 256px;  /* adjust as per your needs */
@@ -124,7 +124,7 @@ button {
 }
 
 .bottom-bar {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
