@@ -13,10 +13,11 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 64px;
-    width: 64px;
+    height: 86px;
+    width: 86px;
     background: white;
     padding: 6px;
+    margin: 12px;
     border-radius: 6px;
     cursor: pointer;
 }
