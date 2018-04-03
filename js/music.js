@@ -1,8 +1,8 @@
 const music = document.getElementById('the-music');
 
 function playSong(elem, url) {
-    const artist = elem.find('#music-item-artist').html();
-    const name = elem.find('#music-item-song').html();
+    const artist = elem.find('.music-item-artist').html();
+    const name = elem.find('.music-item-song').html();
 
     console.log(`Playing ${name} by ${artist}`);
 
