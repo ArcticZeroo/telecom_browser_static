@@ -20,16 +20,6 @@ li.site-item {
     align-items: center;
 }
 
-#more-info {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #0D47A1;
-}
-
 #more-info button {
     background: #FAFAFA;
     outline: none;

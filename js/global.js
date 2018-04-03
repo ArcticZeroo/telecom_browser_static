@@ -1,8 +1,8 @@
 // Constants
 const BAR_ADD_TIMEOUT = 50;
 const MAX_BAR_VALUE = 1;
-const PAGE_ROOT = window.location.origin + '/netneutrality/html/';
-const HOME_URL = PAGE_ROOT + 'home.html';
+const PAGE_ROOT = window.location.origin + '/netneutrality/';
+const HOME_URL = PAGE_ROOT + 'html/home.html';
 
 const PACKAGES = {
     social: {
@@ -273,7 +273,7 @@ function loadPage(url, speed = 1.0, internal = false, show) {
 }
 
 function loadPageInternal(url) {
-    loadPage(PAGE_ROOT + url + '.html', undefined, true);
+    loadPage(PAGE_ROOT + 'html/' + url + '.html', undefined, true);
 }
 
 function loadPageActual(url, internal = false) {

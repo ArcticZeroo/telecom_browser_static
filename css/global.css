@@ -122,3 +122,13 @@ button {
     justify-content: flex-end;
     align-items: center;
 }
+
+.bottom-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0D47A1;
+}

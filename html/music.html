@@ -12,12 +12,12 @@
 
         <section id="music-selection">
             <ul id="music-selection-list">
-                <li class="music-item">
+                <li class="music-item" onclick="playSong($(this), 'hannahmontana')">
                     <section class="music-item-artist">
                         Hannah Montana
                     </section>
                     <section class="music-item-song">
-                        Best of both worlds
+                        Best of Both Worlds
                     </section>
                 </li>
                 <li class="music-item">
@@ -70,6 +70,16 @@
                 </li>
             </ul>
         </section>
+    </section>
+    <section id="music-playing" class="bottom-bar">
+        <audio id="the-music" loop>
+            <source id="music-source" src="">
+        </audio>
+        <i id="music-toggle"></i>
+        <section id="music-name">
+            No song playing.
+        </section>
+        <section id="music-artist"></section>
     </section>
 </article>
 <link rel="stylesheet" type="text/css" href="/netneutrality/css/music.css"/>
