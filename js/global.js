@@ -187,10 +187,11 @@ class PageProgressBar extends EventEmitter {
 }
 
 class PopupModal extends EventEmitter {
-    constructor({ title, subtitle, text, canBeClosed = true, id }) {
+    constructor({ title, subtitle, text, canBeClosed = true, id, classes = [] }) {
         super();
 
-        $('body').append(`<div class="card popup-modal" id="${id}"></div>`);
+        classes = ['card', 'popup-modal'].concat(classes);
+        $('body').append(`<div class="${classes.join(' ')}" id="${id}"></div>`);
 
         const modal = $(`#${id}`);
 
@@ -248,7 +249,7 @@ function loadPage(url, speed = 1.0, internal = false, show) {
             text = data.message || 'Sorry, but you can\'t visit this site.';
         }
 
-        new PopupModal({ title: 'Site Visit Restricted', text, id: 'site-visit-restricted' }).modal.addClass('red');
+        new PopupModal({ title: 'Site Visit Restricted', text, id: 'site-visit-restricted', classes: ['red'] });
 
         return;
     }
@@ -288,7 +289,7 @@ function loadPageActual(url, internal = false) {
                 events.emit('page', url);
             })
             .catch((e) => {
-                site.append('<article class="error">Unable to load webpage. Please try again later.</article>');
+                new PopupModal({ title: 'Site Loading Error', text: 'Unable to load website. Please try again later.', classes: ['red'] });
             });
     } else {
         $('iframe').attr('src', url);
