@@ -1,4 +1,6 @@
 {
+  "short_name": "TeleBrowser",
+  "name": "Telecom Browser: What net neutrality?",
   "theme_color": "#0D47A1",
   "background_color": "#0D47A1",
   "display": "standalone"
